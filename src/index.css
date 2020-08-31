@@ -2,13 +2,39 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
-
+/* /////////////////////////////////////////Navbar */
 .navbar {
-  width: 100%;
   height: 116px;
   background-color: #7ed321;
+  padding-left: 37px;
+  padding-right: 36px;
+  display: flex;
+}
+.regNavbar {
+  align-items: center;
+}
+.acsNavbar {
+  align-items: center;
+  justify-content: space-between;
 }
 
+.logo {
+  color: #fff;
+}
+.navbar a {
+  padding-left: 45px;
+  font-family: SFUIText;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}
+
+/* ///////////////////////////////////////Register */
 .register {
   height: 100%;
   display: flex;
@@ -40,4 +66,48 @@ body {
   letter-spacing: normal;
   color:  #ffffff;
   background-color:#e990f9;
+}
+/*/////////////////////////////////  Create */
+
+.createDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.createBtn {
+  width: 249px;
+  height: 60px;
+  border-radius: 36px;
+  border: solid 3px #e990f9;
+  font-family: SFUIText;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #e990f9;
+  background-color: #fff;
+}
+
+/*/////////////////////////////////  Jogs */
+.jogs {
+  display: flex;
+  justify-content: center;
+}
+
+/*////////////////////////////////// Form */
+
+.formJog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 503px;
+  height: 379px;
+  border-radius: 44px;
+  background-color: #7ed321;
+}
+
+.input {
+  margin-bottom: 25px;
 }

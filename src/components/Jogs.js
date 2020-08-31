@@ -1,4 +1,5 @@
 import React from 'react'
+import {FormJog} from './FormJog'
 
 export const Jogs = () => {
 
@@ -8,7 +9,7 @@ export const Jogs = () => {
 
 return (
     <div className='jogs'>
-        <h1>Jogs</h1>
+        <FormJog />
         <button onClick={() => remove()} className='letMeIn'>Remove token</button>
     </div>
 )

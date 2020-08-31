@@ -1,27 +1,31 @@
 import React, {useContext} from 'react'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import {RegisterContext} from '../context/register/registerContext'
 import {Register} from './Register'
 import {Jogs} from './Jogs'
+import {Info} from './Info'
+import {ContactUs} from './ContactUs'
+import {Creating} from './Creating'
 
 export const Main = () => {
   
-  const {access, token} = useContext(RegisterContext)
+  useContext(RegisterContext)
   
-  console.log(access, token)
-
- if (localStorage.getItem('token')) {
+  const token = localStorage.getItem('token')
+ 
     return  (
       <div className='container'>
-          <Jogs />
+          {token
+          ?<Switch>
+            <Route path={'/'} exact component={Jogs} />
+            <Route path={'/info'} exact component={Info} />
+            <Route path={'/contact'} exact component={ContactUs} />
+            <Route path={'/creating'} exact component={Creating} />
+          </Switch> 
+          :<Register />
+          } 
       </div>
       )
-  }
-     return ( 
-      <div className='container'>
-          <Register />  
-      </div>
-  )
 }
 
 
