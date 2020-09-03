@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import axios from 'axios' 
+import api from '../api/index'
 
 
 export const FormJog = () => {
@@ -23,31 +23,26 @@ const getData = (evt) => {
     )
 }
 
-const submitData =  (evt) => {
+const submitData = async  (evt) => {
     evt.preventDefault();
     const distance = state.distance
     const time = state.time
     const date = state.date
     const token = localStorage.getItem('token')
+    api.token = token
 
     if (distance && time && date) {
-        
-        ( async function(){
-			try {
-                const addtoken = `Bearer ${token}`
-                const addParams = new  URLSearchParams({date, time, distance,})
-                const res = await axios.post("https://jogtracker.herokuapp.com/api/v1/data/jog",{params:  addParams},{
-                    headers: addtoken
-                })
-                let  result = res.data.response;
-                console.log(result)
-                
-			}
-			catch (e) {
-                console.log(e)
-                throw new Error(e.messEge)
-			}
-        })()
+    
+    
+    const res = await api.addJog({date: date, time: time, distance: distance})
+    let result = res.response;
+    console.log(result)
+
+    const gets = await api.getJogs()
+    let get = gets.response;
+    console.log(get)
+
+
     }
 }
 
@@ -77,34 +72,3 @@ return (
     </div>
 )
 }
-// (async function() {
-//     let tokenResponse = await fetch("https://jogtracker.herokuapp.com/api/v1/auth/uuidLogin", {
-//       method: "POST",
-//       body: new  URLSearchParams({uuid: 'hello'})
-//     });
-//       const data = await tokenResponse.json();
-//       const token = data.response.access_token;
-//       console.log(data);
-//       console.log(data.response.access_token);
-  
-//       let params = new URLSearchParams({date: 22.08, time: 11.55, distance: 1000});
-//       let newParams = new URLSearchParams({date: 15.08, time: 20, distance: 1000000, jog_id: 2192, user_id: 3, });
-  
-//      let  request = async (url, method, token, params) => {
-//       let response = await fetch(url, {
-//           method: method,
-//           headers: {
-//               Authorization: `Bearer ${token}`
-//           },
-//           body: params,
-//         });
-      
-//         let result = await response.json();
-//         console.log(result);
-//    }
-//    request("https://jogtracker.herokuapp.com/api/v1/data/jog", "POST", token, params);
-//    request("https://jogtracker.herokuapp.com/api/v1/data/jog", "PUT", token, newParams);
-  
-  
-//   })();
-// onSubmit={''}
