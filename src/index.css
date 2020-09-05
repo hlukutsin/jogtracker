@@ -2,6 +2,13 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+/*//////////////////////////////////////////Main container*/
+.mainContainer {
+  display: flex;
+  justify-content: center;
+}
+
+
 /* /////////////////////////////////////////Navbar */
 .navbar {
   height: 116px;
@@ -94,6 +101,8 @@ body {
 .jogs {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*////////////////////////////////// Form */

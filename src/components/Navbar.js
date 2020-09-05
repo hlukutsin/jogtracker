@@ -1,12 +1,12 @@
 import React, {useContext} from 'react'
-import {RegisterContext} from '../context/register/registerContext'
+import {StoreContext} from '../context/store/storeContext'
 import {NavLink} from 'react-router-dom'
 
 export const Navbar = () => {
 
     const token = localStorage.getItem('token')
 
-    useContext(RegisterContext)
+    useContext(StoreContext)
 
     let className = token?'acsNavbar navbar':'regNavbar navbar';
 

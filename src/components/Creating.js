@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 export const Creating = () => {
 
@@ -9,11 +9,8 @@ export const Creating = () => {
 
 return (
     <div className='createDiv'>
-        <Link to="/">
-          <button className='createBtn' renderAs="button">
-            Create your jog first
-          </button>
-        </Link>
+        Create jogs
+        <NavLink className='navLink' to='/form'>Add jog</NavLink>
     </div>
 )
 }

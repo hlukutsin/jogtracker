@@ -1,12 +1,17 @@
 import React, {useContext} from 'react'
-import {RegisterContext} from '../context/register/registerContext'
+import {StoreContext} from '../context/store/storeContext'
 
 export const Register = () => {
-    const {fetchToken} = useContext(RegisterContext)
+    const {fetchToken} = useContext(StoreContext)
+
+    const fetch = () => {
+        fetchToken()
+    }
     return (
+
         <div className='register'>
             <div className='bearBox'>
-                <button onClick={() => fetchToken()} className='letMeIn'>Let me in</button>
+                <button onClick={() => fetch()} className='letMeIn'>Let me in</button>
             </div>
         </div>
     )
