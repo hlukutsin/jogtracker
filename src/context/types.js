@@ -1,3 +1,5 @@
 export const GET_TOKEN = 'GET_TOKEN'
 export const GET_JOGS = 'GET_JOGS'
 export const CHANGE_ITEM = 'CHANGE_ITEM'
+export const CHANGE_FILTER = 'CHANGE_FILTER'
+export const GET_PARAMS = 'GET_PARAMS'

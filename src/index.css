@@ -40,6 +40,21 @@ body {
   text-align: center;
   color: #fff;
 }
+/*////////////////////////////////////////Filtes   */
+
+.filter {
+  width: 100vw;
+  height: 60px;
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filterInputs {
+  display: flex;
+  align-items: center;
+}
 
 /* ///////////////////////////////////////Register */
 .register {

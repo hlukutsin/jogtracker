@@ -1,7 +1,7 @@
 import React, {useReducer} from 'react'
 import {StoreContext} from './storeContext'
 import {Reducer} from './Reducer'
-import {GET_TOKEN, GET_JOGS, CHANGE_ITEM} from '../types'
+import {GET_TOKEN, GET_JOGS, CHANGE_ITEM, CHANGE_FILTER} from '../types'
 import api from "../../api/index"
 console.log("api", api)
 
@@ -10,7 +10,9 @@ export const State = ({children}) => {
 	const initialState = {
 		token: '',
 		jogs: [],
-		item: null
+		item: null,
+		filter: false,
+		filterParams: {}
   }
 
 	const [state, dispatch] = useReducer(Reducer, initialState)
@@ -23,7 +25,6 @@ export const State = ({children}) => {
 				 console.log(api)
 				 localStorage.setItem('token', token)
 
-				
 				 dispatch({
       		type: 	GET_TOKEN,
 					payload: token,
@@ -59,10 +60,35 @@ export const State = ({children}) => {
 			})
 		}
 
+		const changeFilter = () => {
+			dispatch({
+				type: 	CHANGE_FILTER,
+			})
+
+
+		}
+
+		const getFilterParams = (params) => {
+			dispatch({
+				type: 	CHANGE_FILTER,
+				payload: params
+			})
+		}
+
 	return (
-    <StoreContext.Provider value={
-		{fetchToken, fetchJogs, getId, token: state.token, jogs: state.jogs, item: state.item}
-	}>
+	<StoreContext.Provider 
+	value={{
+		fetchToken,
+		fetchJogs,
+		getId,
+		changeFilter,
+		getFilterParams,
+		token: state.token,
+		jogs: state.jogs,
+		item: state.item,
+		filter: state.filter,
+		filterParams: state.filterParams
+	}}>
       {children}
     </StoreContext.Provider>
   )

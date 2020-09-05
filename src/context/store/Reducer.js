@@ -1,11 +1,11 @@
-import {GET_TOKEN} from '../types'
-import {GET_JOGS} from '../types'
-import {CHANGE_ITEM} from '../types'
+import {GET_TOKEN, GET_JOGS, CHANGE_ITEM, CHANGE_FILTER, GET_PARAMS} from '../types'
 
 const initialState = {
     token: '',
     jogs: [],
-    item: null
+    item: null,
+    filter: false,
+    filterParams: {}
   }
   
   export const Reducer = (state = initialState, action) => {
@@ -16,7 +16,10 @@ const initialState = {
             return {...state, jogs: action.payload}
         case CHANGE_ITEM:
             return {...state, item: action.payload}
-            //flag: false creating jog / true changing jog
+        case CHANGE_FILTER:
+            return {...state, filter: !state.filter}
+        case GET_PARAMS:
+            return {...state, filterParams: action.payload}
         default:
             return state  
     }

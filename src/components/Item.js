@@ -26,15 +26,15 @@ const date = new Date(props.date * 1000)
 let year = date.getFullYear()
 let month = date.getMonth()
 let day = date.getDate()
-if (month < 10) {
-  month = '0' + month
-}
-if (day < 10) {
+if (day <10) {
   day = '0' + day
 }
 
-
-
+let  strMonth = month + 1
+  if (strMonth < 9) {
+    strMonth = '0' + strMonth
+  }
+   
 return (
   <div className='wrapper'>
     <button onClick={() => deleteId(props.id, props.user_id)}>Delete</button>
@@ -42,7 +42,7 @@ return (
   onClick={ () => handleClick(props.id, props.user_id)}
   >
     <h1>Item</h1>
-    <p>{`${day}.${month}.${year}`}</p>
+    <p>{`${day}.${strMonth}.${year}`}</p>
     <p>Speed: 15</p>
     <p>Distance: {props.distance} km</p>
     <p>Time: {props.time} min</p>

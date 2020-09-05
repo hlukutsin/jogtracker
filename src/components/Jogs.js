@@ -3,22 +3,27 @@ import {StoreContext} from '../context/store/storeContext'
 import {Item} from './Item'
 import {NavLink} from 'react-router-dom'
 import {Creating } from './Creating'
+import {Filter} from './Filter'
 
 export const Jogs = () => {
 
-    const {jogs} =  useContext(StoreContext)
+    const {jogs, filter} =  useContext(StoreContext)
 
-    const remove = () => {
-        localStorage.removeItem('token')
-    }
-
+    // const remove = () => {
+    //     localStorage.removeItem('token')
+    // }
 
     let jogsArr = jogs;
-    console.log(jogsArr.length)
+
+    let showFilter
+    if (filter===true) {
+        showFilter = <Filter />
+    }
 
 return (
     <div className='jogs'>
-        <button onClick={remove}>Remove</button>
+        {/* <button onClick={remove}>Remove</button> */}
+        {showFilter}
         {jogsArr.length !== 0
         ?jogsArr.map((item, ident) => (
             <Item

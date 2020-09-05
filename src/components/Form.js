@@ -17,8 +17,8 @@ const initialState = {
 const [state, setState] = useState(initialState)
 
 const getData = (evt) => {
-    evt.preventDefault();
-    const target = evt.target;
+    evt.preventDefault()
+    const target = evt.target
     const name = target.name
     const value = target.value
 
@@ -28,7 +28,7 @@ const getData = (evt) => {
 }
 
 const createJog = async  (evt) => {
-    evt.preventDefault();
+    evt.preventDefault()
     console.log(item)
     const distance = state.distance
     const time = state.time
@@ -42,7 +42,7 @@ const createJog = async  (evt) => {
     const res = await api.addJog({date, time, distance})
     let result = res.response;
     fetchJogs()
-    console.log(item)
+    
     } else {
         const id = item.id
         const user = item.userID
@@ -51,7 +51,7 @@ const createJog = async  (evt) => {
         fetchJogs()
         getId()
     }
-
+    setState(initialState)
 
     }
 }
@@ -63,7 +63,7 @@ return (
             <div>
                 <label>
                  Distance:
-                <input className='input' name='distance' type="number" value={state.distance}  onChange={(evt) => getData(evt)} />
+                <input className='input' name='distance'  type="number" value={state.distance}  onChange={(evt) => getData(evt)} />
                 </label>
             </div>
             <div>
@@ -75,7 +75,7 @@ return (
             <div>
                 <label>
                 Date:
-                <input className='input' name='date' type="Date" value={state.date} onChange={(evt) => getData(evt)} />
+                <input className='input' name='date' type="Date" min="1970-01-01" max="2021-12-31"  value={state.date} onChange={(evt) => getData(evt)} />
                 </label>
             </div>
             <input type="submit" value="Save" />
