@@ -6,7 +6,12 @@ export const Navbar = () => {
 
     const token = localStorage.getItem('token')
 
-    const {changeFilter} = useContext(StoreContext)
+    const {changeFilter, getFilterParams} = useContext(StoreContext)
+
+    const handle = () => {
+        changeFilter()
+        getFilterParams()
+    }
 
     let className = token?'acsNavbar navbar':'regNavbar navbar';
 
@@ -15,10 +20,10 @@ export const Navbar = () => {
             <div className='logo'>Logo</div>
             {token
             ? <div className='links'>
-                    <NavLink className='navLink' to='/' exact>JOGS</NavLink>
-                    <NavLink className='navLink' to='/info'>INFO</NavLink>
-                    <NavLink className='navLink' to='/contact'>CONTACT US</NavLink>
-                    <NavLink className='navLink' to='/' onClick={()=>changeFilter()}>FILTER</NavLink>
+                    <NavLink className='navLink' to='/'  exact>JOGS</NavLink>
+                    <NavLink className='navLink' to='/info' onClick={()=>getFilterParams()}>INFO</NavLink>
+                    <NavLink className='navLink' to='/contact' onClick={()=>getFilterParams()}>CONTACT US</NavLink>
+                    <NavLink className='navLink' to='/' onClick={()=>handle()}>FILTER</NavLink>
                 </div>
             : null
             }

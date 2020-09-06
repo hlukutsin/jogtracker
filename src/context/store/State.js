@@ -1,7 +1,7 @@
 import React, {useReducer} from 'react'
 import {StoreContext} from './storeContext'
 import {Reducer} from './Reducer'
-import {GET_TOKEN, GET_JOGS, CHANGE_ITEM, CHANGE_FILTER} from '../types'
+import {GET_TOKEN, GET_JOGS, CHANGE_ITEM, CHANGE_FILTER, GET_PARAMS} from '../types'
 import api from "../../api/index"
 console.log("api", api)
 
@@ -12,7 +12,7 @@ export const State = ({children}) => {
 		jogs: [],
 		item: null,
 		filter: false,
-		filterParams: {}
+		filterParams: null
   }
 
 	const [state, dispatch] = useReducer(Reducer, initialState)
@@ -70,7 +70,7 @@ export const State = ({children}) => {
 
 		const getFilterParams = (params) => {
 			dispatch({
-				type: 	CHANGE_FILTER,
+				type: 	GET_PARAMS,
 				payload: params
 			})
 		}

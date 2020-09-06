@@ -11,7 +11,6 @@ const initialState = {
     distance: '',
     time: '',
     date: ''
-
 }
 
 const [state, setState] = useState(initialState)
