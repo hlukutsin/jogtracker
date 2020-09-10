@@ -370,7 +370,7 @@ span {
   .mainContainer {
     display: flex;
     justify-content: center;
-    position: relative;
+    /* position: relative; */
   }
 
   .navbar {
@@ -415,7 +415,6 @@ span {
 
     /*///////////////////////////////////////////////////MenuMob*/
   .menu {
-    
     position: absolute;
     top: 0;
     width: 100%;
@@ -626,6 +625,7 @@ span {
   position: relative;
   margin-top: 32px;
   margin-bottom: 128px;
+  z-index: 1;
 }
 
 .form {
@@ -682,8 +682,6 @@ span {
 .infoWrap {
   display: flex;
   justify-content: center;
-  position: absolute;
-  top: 24px;
 }
 
 .info {
