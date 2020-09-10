@@ -1,43 +1,16 @@
 body {
   margin: 0;
   box-sizing: border-box;
-  width: 100%;
 }
-
-@font-face {
-  font-family: SFUITextBold; 
-  src: url(assets/fonts/SFUIText-Bold.ttf) 
- }
-
- @font-face {
-  font-family: SFUITextRegular; 
-  src: url(assets/fonts/SFUIText-Regular.ttf) 
- }
-
- @font-face {
-  font-family: SFUITextMedium; 
-  src: url(assets/fonts/SFUIText-Medium.ttf) 
- }
-/*//////////////////////////////////////////////////////////////////////////////Desktop*/
 /*//////////////////////////////////////////Main container*/
-.contactUs {
-  font-family: SFUITextRegular;
-  color: #7ed321;
-}
-
 .mainContainer {
   display: flex;
   justify-content: center;
 }
 
-@media (min-width: 571px) {
-
-
 
 /* /////////////////////////////////////////Navbar */
-
 .navbar {
-  
   height: 116px;
   background-color: #7ed321;
   padding-left: 37px;
@@ -55,9 +28,9 @@ body {
 .logo {
   color: #fff;
 }
-.navLink {
-  margin-left: 45px;
-  font-family: SFUITextBold;
+.navbar a {
+  padding-left: 45px;
+  font-family: SFUIText;
   font-size: 14px;
   font-weight: bold;
   font-stretch: normal;
@@ -66,26 +39,8 @@ body {
   letter-spacing: normal;
   text-align: center;
   color: #fff;
-  text-decoration: none;
 }
-
-.navLink:hover {
-  border-bottom: 2px solid #fff;
-  padding-bottom: 4px;
-}
-
-.links {
-  display: flex;
-  align-items: center;
-}
-
-.filterBtnOn {
-  margin-left: 11px;
-}
-
-.filterBtn {
-  margin-left: 49px;
-}
+/*////////////////////////////////////////Filtes   */
 
 .filter {
   width: 100vw;
@@ -102,26 +57,21 @@ body {
 }
 
 /* ///////////////////////////////////////Register */
-
 .register {
+  height: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 207px;
+  /* align-items: center; */
 }
 
 .bearBox {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: center;
   width: 503px;
   height: 379px;
   border-radius: 44px;
   background-color: #e990f9;
-}
-
-.bearImg {
-  padding-top: 77px;
-  padding-bottom: 56px;
 }
 
 .letMeIn {
@@ -129,8 +79,13 @@ body {
   height: 60px;
   border-radius: 36px;
   border: solid 3px #ffffff;
-  font-family: SFUITextBold;
+  font-family: SFUIText;
   font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
   color:  #ffffff;
   background-color:#e990f9;
 }
@@ -139,103 +94,30 @@ body {
 .createDiv {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: SFUITextMedium;
-  font-size: 24px;
-  line-height: 1.21;
-  text-align: center;
-  color: #b0b0b0;
 }
 
-.createLink {
+.createBtn {
   width: 249px;
   height: 60px;
   border-radius: 36px;
   border: solid 3px #e990f9;
+  font-family: SFUIText;
   font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
   color: #e990f9;
   background-color: #fff;
 }
 
-.sadImg {
-  margin-top: 190px;
-  margin-bottom: 22px;
-}
-
-.sadText {
-  margin-bottom: 141px;
-}
-
 /*/////////////////////////////////  Jogs */
-
-.mainContainer {
-  padding-top: 50px;
-}
-
 .jogs {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-}
-
-.itemDate {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 9px;
-  font-family: SFUITextRegular;
-  font-size: 14px;
-}
-
-.itemText {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-family: SFUITextBold;
-  font-size: 14px;
-  font-weight: 100;
-}
-
-span {
-  font-family: SFUITextMedium;
-}
-
-.item {
-  display: flex;
-}
-
-.jog {
-  display: flex;
-  align-items: center;
-  padding-bottom: 78.3px;
-}
-
-.itemImg {
-  padding-right: 46px;
-}
-
-.addJogBtn {
-  color: #000;
-}
-
-.addBtnWrapper {
-  height: 60px;
-}
-
-.addBtn {
-  position: absolute;
-  right: 40px;
-  padding-bottom: 40px;
-}
-
-.deleteWrap {
-  height: 100%;
-}
-
-.deleteBtnWrap {
-  border: none;
-  background-color: #fff;
 }
 
 /*////////////////////////////////// Form */
@@ -248,466 +130,8 @@ span {
   height: 379px;
   border-radius: 44px;
   background-color: #7ed321;
-  position: relative;
-  margin-top: 68px;
 }
-
-.form {
-  display: flex;
-  flex-direction: column;
-  
-}
-
-.inputForm {
-  margin-bottom: 25px;
-  width: 236px;
-  height: 31px;
-  border-radius: 7px;
-  border: solid 1px #979797;
-  text-align: center;
-}
-
-.labelDistance {
-  padding-right: 12px;
-}
-
-.labelTime {
-  padding-right: 40px;
-}
-
-.labelDate {
-  padding-right: 42px;
-}
-
-.dateForm {
-  text-align: center;
-}
-
-.submitBtn {
-  width: 320px;
-  height: 42px;
-  border-radius: 25.2px;
-  border: solid 2px #fff;
-  background-color: #7ed321;
-  color: #fff;
-  font-family: SFUITextBold;
-  margin-top: 21px;
-}
-
-.label {
-  font-family: SFUITextRegular;
-  font-size: 16px;
-}
-
-.close {
-  position: absolute;
-  right: 27px;
-  top: 24px;
-}
-
-/*///////////////////////////////////////filter*/
 
 .input {
-  border-radius: 11px;
-  border: solid 1px #979797;
-  background-color: #ffffff;
-  text-align: center;
-  padding-left: 30px;
-  margin-right: 45px;
-  font-family: SFUITextRegular;
-  font-size: 13px;
-  height: 31px;
-  margin-left: 15px;
-}
-.filter {
-  font-family: SFUITextRegular;
-}
-/*///////////////////////////////////////////////info*/
-
-.infoWrap {
-  display: flex;
-  justify-content: center;
-  /* flex-direction: column; */
-}
-
-.info {
-  width: 42.6%;
-  font-family: SFUITextRegular;
-  font-size: 14px;
-  line-height: 1.71;
-}
-
-.infoHeader {
-  font-family: SFUITextBold;
-  color: #7ed321;
-  padding-top: 20px;
-}
-
-.infoHeader h1 {
-  margin: 0;
-  font-size: 36px;
-}
-
-.infoDiv p {
-  margin: 0;
-  margin-bottom: 60px;
-}
-
-.logoMob, .menuMobile, .bearMob, .addMobile, .sadMobile, .cancelMobile {
-  display: none;
-}
-
-}
-
-@media (max-width: 571px) {
-  /*///////////////////////////////////////////////////////////////////////////////////////Mobile*/
-  /*///////////////////////////////////////////////////NavbarMob*/
-
-  .logoDesk, .bearDesc, .jogsNav, .infoNav, .contactNav, .addDesktop, .sadDesktop, .cancelDesktop  {
-    display: none;
-  }
-
-  .mainContainer {
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-
-  .navbar {
-    height: 77px;
-    background-color: #7ed321;
-    padding-left: 25px;
-    padding-right: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .navMenuMobile {
-    margin-left: 30px;
-  }
-
-  .links {
-    display: flex;
-    align-items: center;
-  }
-  /*///////////////////////////////////////////////////RegisterMob*/
-
-  .bearBox {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 141px;
-  }
-  
-  .letMeIn {
-    width: 151px;
-    height: 60px;
-    border-radius: 36px;
-    border: solid 3px #e990f9;
-    font-family: SFUITextBold;
-    font-size: 18px;
-    font-weight: bold;
-    color:  #e990f9;
-    background-color: #fff;
-    margin-top: 103px;
-  }
-
-    /*///////////////////////////////////////////////////MenuMob*/
-  .menu {
-    
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-  }
-
-  .navMenu {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 15px;
-    padding-top: 15px;
-    
-  }
-
-  .logoMenu {
-    margin-top: 5px;
-  }
-
-  .closeMenu {
-    margin-top: 1px;
-    
-  }
-
-  .mainMenu {
-    margin-top: 100px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .menuLink {
-    font-size: 20px;
-    text-decoration: none;
-    color: black;
-    font-family: SFUITextBold;
-  }
-
-  .menuLink:hover {
-    color: #7ed321;
-  }
-
-  .menuLink p {
-    margin-bottom: 0px;
-  }
-
- /*///////////////////////////////////////////////////FilterMob*/
-
- .filter {
-   height: 60px;
-   background-color: rgb(234 234 234);
-   display: flex;
-   align-items: center;
-   justify-content: center; 
- }
- .filterInputs {
-  display: flex;
-  font-size: 13px;
-  font-family: SFUITextRegular;
-  width: 100%;
-  justify-content: space-evenly;
- }
-
- .input {
-   width: 92px;
-   height: 31px;
-   border-radius: 11px;
-   border: solid 1px #979797;
-   text-align: center;
-   font-size: 13px;
-   padding-left: 30px;
-   margin-left: 10px;
-   
- }
-
- .filterInputs label {
-   margin-left: 15px;
- }
-
- /*///////////////////////////////////////////////////JogsMob*/
-
-.mainContainer {
-  padding-top: 50px;
-}
-
-.jogs {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.itemDate {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 9px;
-  font-family: SFUITextRegular;
-  font-size: 14px;
-}
-
-.itemText {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 12px;
-  font-family: SFUITextBold;
-  font-size: 14px;
-  font-weight: 100;
-}
-
-span {
-  font-family: SFUITextMedium;
-}
-
-.item {
-  display: flex;
-}
-
-.jog {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid rgb(215 215 215);
-  padding-bottom: 38px;
-  padding-top: 50px;
-  width: 100%;
-
-}
-
-.jog:first-child {
-  padding-top: 0px;
- } 
-
-.itemImg {
-  padding-right: 46px;
-}
-
-.addJogBtn {
-  color: #000;
-}
-
-.addBtnWrapper {
-  height: 60px;
-}
-
-.addBtn {
-  position: absolute;
-  right: 40px;
-  padding-top: 73px;
-  padding-bottom: 30px;
-}
-
-.deleteWrap {
-  height: 100%;
-}
-
-.deleteBtnWrap {
-  border: none;
-  background-color: #fff;
-}
-
-/*///////////////////////////////////////////////////CreatingMob*/
-
-.createDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: SFUITextMedium;
-  font-size: 24px;
-  line-height: 1.21;
-  text-align: center;
-  color: #b0b0b0;
-}
-
-.createLink {
-  width: 249px;
-  height: 60px;
-  border-radius: 36px;
-  border: solid 3px #e990f9;
-  font-size: 18px;
-  color: #e990f9;
-  background-color: #fff;
-  margin-bottom: 71px;
-}
-
-.sadImg {
-  margin-top: 90px;
-  margin-bottom: 6px;
-}
-
-.sadText {
-  margin-bottom: 141px;
-}
-
-/*////////////////////////////////// Form */
-
-.formJog {
-  display: flex;
-  justify-content: center;
-  width: 81.8%;
-  max-width: 307px;
-  height: 379px;
-  border-radius: 29px;
-  background-color: #7ed321;
-  position: relative;
-  margin-top: 32px;
-  margin-bottom: 128px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  padding-top: 64px;
-  align-items: center;
-}
-
-.inputForm {
-  width: 236px;
-  height: 31px;
-  border-radius: 7px;
-  border: solid 1px #979797;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.dateForm {
-  text-align: center;
-}
-
-.submitBtn {
-  width: 237px;
-  height: 42px;
-  border-radius: 25.2px;
-  border: solid 2px #fff;
-  background-color: #7ed321;
-  color: #fff;
-  font-family: SFUITextBold;
-  font-size: 12.6px;
-  margin-top: 21px;
-}
-
-.label {
-  font-family: SFUITextMedium;
-  font-size: 13px;
-  padding-bottom: 6px;
-}
-
-.close {
-  position: absolute;
-  right: 21px;
-  top: 21px;
-}
-
-.inpDiv {
-  display: flex;
-  flex-direction: column;
-}
-
-/*////////////////////////////////// Info */
-
-.infoWrap {
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  top: 24px;
-}
-
-.info {
-  width: 78.6%;
-  font-family: SFUITextRegular;
-  font-size: 12px;
-  line-height: 24px;
-
-}
-
-.infoHeader {
-  font-family: SFUITextBold;
-  color: #7ed321;
-  padding-bottom: 6px;
-}
-
-.infoHeader h1 {
-  margin: 0;
-  font-size: 25px;
-}
-
-.infoDiv p {
-  margin: 0;
-  margin-bottom: 35px;
-}
-
+  margin-bottom: 25px;
 }

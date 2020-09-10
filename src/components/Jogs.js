@@ -3,12 +3,15 @@ import {StoreContext} from '../context/store/storeContext'
 import {Item} from './Item'
 import {NavLink} from 'react-router-dom'
 import {Creating } from './Creating'
-import addDesktop from '../assets/images/desktop/add.png'
-import addMobile from '../assets/images/mobile/add.png'
+import {Filter} from './Filter'
 
 export const Jogs = () => {
 
-    const {jogs, filterParams} =  useContext(StoreContext)
+    const {jogs, filter, filterParams} =  useContext(StoreContext)
+
+    // const remove = () => {
+    //     localStorage.removeItem('token')
+    // }
 
     let jogsArr = jogs;
 
@@ -33,9 +36,20 @@ export const Jogs = () => {
 			console.log('to',dateTo)
 		}
 	}
-  
+    
+
+
+
+    let showFilter
+    if (filter===true) {
+        showFilter = <Filter />
+		}
+		
+
 return (
     <div className='jogs'>
+        {/* <button onClick={remove}>Remove</button> */}
+        {showFilter}
         {jogsArr.length !== 0
         ?jogsArr.map((item, ident) => {
 						
@@ -105,14 +119,7 @@ return (
         : <Creating />
         }
         {   jogsArr.length !== 0
-            ?<div className='addBtnWrapper'>
-							<div className='addBtn'>
-									<NavLink className='addJogBtn' to='/form'>
-										<img className='addDesktop'  src={addDesktop}  alt="Add"/>
-										<img className='addMobile'  src={addMobile}  alt="Add"/>
-									</NavLink>
-							</div>
-						</div>
+            ?<NavLink className='navLink' to='/form'>Add jog</NavLink>
             : null
         }
     </div>

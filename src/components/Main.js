@@ -7,30 +7,18 @@ import {Info} from './Info'
 import {ContactUs} from './ContactUs'
 import {Creating} from './Creating'
 import {Form} from './Form'
-import {Filter} from './Filter'
-import {Menu} from './Menu'
-
-
 
 
 export const Main = () => {
   
-const {fetchJogs, filter} = useContext(StoreContext)
+const {fetchJogs} = useContext(StoreContext)
 const token = localStorage.getItem('token')
 
 useEffect(() => {
   if (token) fetchJogs()
 }, [token])
 
-
-let showFilter
-if (filter===true) {
-    showFilter = <Filter />
-}
-
     return  (
-      <>
-      {showFilter}
       <div className='mainContainer'>
           {token
           ?<Switch>
@@ -39,12 +27,10 @@ if (filter===true) {
             <Route path={'/contact'} exact component={ContactUs} />
             <Route path={'/creating'} exact component={Creating} />
             <Route path={'/form'} exact component={Form} />
-            <Route path={'/menu'} exact component={Menu} />
           </Switch> 
           :<Register />
           } 
       </div>
-    </>
       )
 }
 
