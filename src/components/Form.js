@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react'
 import api from '../api/index'
 import {NavLink} from 'react-router-dom'
 import {StoreContext} from '../context/store/storeContext'
+import cancelDesktop from '../assets/images/desktop/cancel.png'
+import cancelMobile from '../assets/images/mobile/cancel.png'
 
 export const Form = () => {
 
@@ -54,30 +56,33 @@ const createJog = async  (evt) => {
 
     }
 }
-
+ 
 return (
     <div className='formJog'>
-        <NavLink className='navLink' to='/'>Close</NavLink>
+        <NavLink className='close' to='/'>
+            <img className='cancelDesktop'  src={cancelDesktop} alt="Cancel" />
+            <img className='cancelMobile' src={cancelMobile} alt="Cancel"/>
+        </NavLink>
         <form className='form' onSubmit={createJog} >
-            <div>
-                <label>
-                 Distance:
-                <input className='input' name='distance'  type="number" value={state.distance}  onChange={(evt) => getData(evt)} />
+            <div className='inpDiv'>
+                <label className='label labelDistance'>
+                    Distance
                 </label>
+                <input className='inputForm' name='distance'  type="number" value={state.distance}  onChange={(evt) => getData(evt)} />
             </div>
-            <div>
-                <label>
-                 Time:
-                <input className='input' name='time' type="number" value={state.time} onChange={(evt) => getData(evt)} />
+            <div className='inpDiv'>
+                <label className='label labelTime'>
+                     Time
+                 </label>
+                <input className='inputForm' name='time' type="number" value={state.time} onChange={(evt) => getData(evt)} />
+            </div>
+            <div className='inpDiv'>
+                <label className='label labelDate'>
+                    Date
                 </label>
+                <input className='inputForm dateForm' name='date' type="Date" min="1970-01-01" max="2021-12-31"  value={state.date} onChange={(evt) => getData(evt)} />
             </div>
-            <div>
-                <label>
-                Date:
-                <input className='input' name='date' type="Date" min="1970-01-01" max="2021-12-31"  value={state.date} onChange={(evt) => getData(evt)} />
-                </label>
-            </div>
-            <input type="submit" value="Save" />
+            <input className='submitBtn' type="submit" value="Save" />
       </form>
     </div>
 )

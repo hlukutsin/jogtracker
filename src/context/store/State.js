@@ -12,7 +12,7 @@ export const State = ({children}) => {
 		jogs: [],
 		item: null,
 		filter: false,
-		filterParams: null
+		filterParams: {}
   }
 
 	const [state, dispatch] = useReducer(Reducer, initialState)
@@ -31,9 +31,9 @@ export const State = ({children}) => {
 				})
 
 	}
-	
+
 		const fetchJogs = async () => {
-			
+
 			let jogs = await api.getJogs()
 			 jogs = jogs.response.jogs;
 			console.log(jogs)
@@ -45,7 +45,7 @@ export const State = ({children}) => {
 
 		const getId = (id, userID) => {
 
-			
+
 			let item = {}
 			item.id = id
 			item.userID = userID
@@ -69,6 +69,7 @@ export const State = ({children}) => {
 		}
 
 		const getFilterParams = (params) => {
+      console.log("getFilterParams -> params", params)
 			dispatch({
 				type: 	GET_PARAMS,
 				payload: params
@@ -76,7 +77,7 @@ export const State = ({children}) => {
 		}
 
 	return (
-	<StoreContext.Provider 
+	<StoreContext.Provider
 	value={{
 		fetchToken,
 		fetchJogs,
