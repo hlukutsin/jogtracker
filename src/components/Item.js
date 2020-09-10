@@ -2,6 +2,8 @@ import React, {useContext} from 'react'
 import {StoreContext} from '../context/store/storeContext'
 import {useHistory} from 'react-router-dom'
 import api from '../api/index'
+import item from '../assets/images/desktop/item.png'
+import deleteIMG from '../assets/images/desktop/deleteIMG.png'
 
 export const Item = (props) => {
 
@@ -36,17 +38,24 @@ let  strMonth = month + 1
   }
    
 return (
-  <div className='wrapper'>
-    <button onClick={() => deleteId(props.id, props.user_id)}>Delete</button>
-  <div className='item' 
-  onClick={ () => handleClick(props.id, props.user_id)}
-  >
-    <h1>Item</h1>
-    <p>{`${day}.${strMonth}.${year}`}</p>
-    <p>Speed: 15</p>
-    <p>Distance: {props.distance} km</p>
-    <p>Time: {props.time} min</p>
+  <div className='jog'>
+    <div className='item' 
+      onClick={ () => handleClick(props.id, props.user_id)}
+    >
+      <div className='itemImg'><img src={item}  alt="Jog"/></div>
+       <div className='itemWrap'>
+         <p className='itemDate'>{`${day}.${strMonth}.${year}`}</p>
+         <p className='itemText'>Speed: <span>15</span></p>
+         <p className='itemText'>Distance: <span>{props.distance} km</span></p>
+         <p className='itemText'>Time: <span>{props.time} min</span></p>
+      </div>
+      
   </div>
+      <div className='deleteWrap'>
+        <button className='deleteBtnWrap' onClick={() => deleteId(props.id, props.user_id)}>
+          <img className='delImg' src={deleteIMG} width='40px'  alt="Delete"/>
+        </button>
+      </div>
   </div>
 )
 }
