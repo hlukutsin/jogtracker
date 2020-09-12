@@ -20,6 +20,7 @@ const token = localStorage.getItem('token')
 
 useEffect(() => {
   if (token) fetchJogs()
+  // eslint-disable-next-line
 }, [token])
 
 

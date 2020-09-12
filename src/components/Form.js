@@ -41,6 +41,7 @@ const createJog = async  (evt) => {
         
     if (item===null) {
     const res = await api.addJog({date, time, distance})
+    // eslint-disable-next-line
     let result = res.response;
     fetchJogs()
     
@@ -48,6 +49,7 @@ const createJog = async  (evt) => {
         const id = item.id
         const user = item.userID
         const res = await api.putJog({date: date, time: time, distance: distance, jog_id: id, user_id: user})
+        // eslint-disable-next-line
         let result = res.response;
         fetchJogs()
         getId()

@@ -36,9 +36,10 @@ export const Jogs = () => {
   
 return (
     <div className='jogs'>
-        {jogsArr.length !== 0
+		{jogsArr.length !== 0
+		// eslint-disable-next-line
         ?jogsArr.map((item, ident) => {
-						
+
 					if (dateFrom <= item.date && item.date <= dateTo) {
 						console.log('from',dateFrom)
 						console.log('item',item.date)
@@ -84,6 +85,7 @@ return (
 							speed = {item.speed}
 							/>
 						)	
+					
 					}
 				}
 
@@ -97,10 +99,10 @@ return (
             date = {item.date}
             speed = {item.speed}
             />
-        		)
-					}
-					} 
-                
+				)
+			}
+		}
+
         )
         : <Creating />
         }
