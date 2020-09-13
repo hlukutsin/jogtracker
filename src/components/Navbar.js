@@ -11,7 +11,7 @@ export const Navbar = () => {
 
     const token = localStorage.getItem('token')
 
-    const {changeFilter, getFilterParams, filter} = useContext(StoreContext)
+    const {changeFilter, getFilterParams, filter, switchOffFilter} = useContext(StoreContext)
 
     const handle = () => {
         changeFilter()
@@ -30,6 +30,12 @@ export const Navbar = () => {
         filterClass = 'filterBtn filterBtnOn'
     }
 
+
+    const onBtnClick = () => {
+        getFilterParams()
+        switchOffFilter()
+    }
+
     return (
         <div className={className}>
             <div className='logo'>
@@ -39,8 +45,8 @@ export const Navbar = () => {
             {token
             ? <div className='links'>
                     <NavLink className='navLink jogsNav' to='/'  exact>JOGS</NavLink>
-                    <NavLink className='navLink infoNav' to='/info' onClick={()=>getFilterParams()}>INFO</NavLink>
-                    <NavLink className='navLink contactNav' to='/contact' onClick={()=>getFilterParams()}>CONTACT US</NavLink>
+                    <NavLink className='navLink infoNav' to='/info' onClick={()=>onBtnClick()}>INFO</NavLink>
+                    <NavLink className='navLink contactNav' to='/contact' onClick={()=>onBtnClick()}>CONTACT US</NavLink>
                     <NavLink to='/' onClick={()=>handle()}>
                         <img src={filterSrc} className={filterClass} alt="Filter"/>
                     </NavLink>

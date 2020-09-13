@@ -1,7 +1,7 @@
 import React, {useReducer} from 'react'
 import {StoreContext} from './storeContext'
 import {Reducer} from './Reducer'
-import {GET_TOKEN, GET_JOGS, CHANGE_ITEM, CHANGE_FILTER, GET_PARAMS} from '../types'
+import {GET_TOKEN, GET_JOGS, CHANGE_ITEM, CHANGE_FILTER, GET_PARAMS, SWITCH0FF_FILER} from '../types'
 import api from "../../api/index"
 console.log("api", api)
 
@@ -76,6 +76,12 @@ export const State = ({children}) => {
 			})
 		}
 
+		const switchOffFilter = () => {
+			dispatch({
+				type: 	SWITCH0FF_FILER,
+			})
+		}
+
 	return (
 	<StoreContext.Provider
 	value={{
@@ -84,6 +90,7 @@ export const State = ({children}) => {
 		getId,
 		changeFilter,
 		getFilterParams,
+		switchOffFilter,
 		token: state.token,
 		jogs: state.jogs,
 		item: state.item,

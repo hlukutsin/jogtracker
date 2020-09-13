@@ -1,4 +1,4 @@
-import {GET_TOKEN, GET_JOGS, CHANGE_ITEM, CHANGE_FILTER, GET_PARAMS} from '../types'
+import {GET_TOKEN, GET_JOGS, CHANGE_ITEM, CHANGE_FILTER, GET_PARAMS, SWITCH0FF_FILER} from '../types'
 
 const initialState = {
     token: '',
@@ -20,6 +20,9 @@ const initialState = {
             return {...state, filter: !state.filter}
         case GET_PARAMS:
             return {...state, filterParams: action.payload}
+        case SWITCH0FF_FILER: {
+            return {...state, filter: false}
+        }
         default:
             return state  
     }
