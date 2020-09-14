@@ -6,7 +6,12 @@ import {NavLink} from 'react-router-dom'
 
 export const Menu = () => {
     
-    const {getFilterParams} = useContext(StoreContext)
+    const {getFilterParams, switchOffFilter} = useContext(StoreContext)
+
+    const handle = () => {
+        switchOffFilter()
+        getFilterParams()
+    }
 
     return (
     <div className='menu'>
@@ -24,10 +29,10 @@ export const Menu = () => {
             <NavLink className='menuLink'  to='/'>
                 <p>JOGS</p>
             </NavLink>
-            <NavLink className='menuLink' to='/info' onClick={()=>getFilterParams()}>
+            <NavLink className='menuLink' to='/info' onClick={()=>handle()}>
                 <p>INFO</p>
             </NavLink>
-            <NavLink className='menuLink' to='/contact' onClick={()=>getFilterParams()}>
+            <NavLink className='menuLink' to='/contact' onClick={()=>handle()}>
                 <p>CONTACT US</p>
             </NavLink>
             </div>

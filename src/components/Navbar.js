@@ -11,7 +11,9 @@ export const Navbar = () => {
 
     const token = localStorage.getItem('token')
 
-    const {changeFilter, getFilterParams, filter, switchOffFilter, jogs} = useContext(StoreContext)
+    const {changeFilter, getFilterParams, filter, switchOffFilter, jogs, fetchJogs} = useContext(StoreContext)
+
+    const url  = window.location.pathname
 
     const handle = () => {
         changeFilter()
@@ -38,13 +40,20 @@ export const Navbar = () => {
 
     let filterIcon
 
+    if (url === '/info' || url === '/contact') {
+        jogs.length = 0
+    } 
+
     if (jogs.length !== 0) {
-    //     filterIcon = <NavLink to='/' onClick={()=>handle()}>
-    //     <img src={filterSrc} className={filterClass} alt="Filter"/>
-    // </NavLink>
-    } else {
+
+        filterIcon = <NavLink className='mobileFilter' to='/' onClick={()=>handle()}>
+                        <img src={filterSrc} className={filterClass} alt="Filter"/>
+                    </NavLink>
+        
+    } else  if (jogs.length === 0) {
         filterIcon = null;
-    }
+        fetchJogs()
+    } 
 
     return (
         <div className={className}>
@@ -57,13 +66,13 @@ export const Navbar = () => {
                     <NavLink className='navLink jogsNav' to='/'  exact>JOGS</NavLink>
                     <NavLink className='navLink infoNav' to='/info' onClick={()=>onBtnClick()}>INFO</NavLink>
                     <NavLink className='navLink contactNav' to='/contact' onClick={()=>onBtnClick()}>CONTACT US</NavLink>
-                    {/* <NavLink to='/' onClick={()=>handle()}>
+                    <NavLink className='desktopFilter' to='/' onClick={()=>handle()}>
                         <img src={filterSrc} className={filterClass} alt="Filter"/>
-                    </NavLink> */}
+                    </NavLink>
+                    {filterIcon}
                     <NavLink className='navMenuMobile' to='/menu'>
                         <img src={menuMobile} className='menuMobile' alt="Filter"/>
                     </NavLink>
-                    {filterIcon}
                 </div>
             : <img src={menuMobile} className='menuMobile' alt="Filter"/>
             }

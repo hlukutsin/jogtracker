@@ -354,7 +354,8 @@ span {
   margin-bottom: 60px;
 }
 
-.logoMob, .menuMobile, .bearMob, .addMobile, .sadMobile, .cancelMobile {
+.logoMob, .menuMobile, .bearMob, .addMobile,
+.sadMobile, .cancelMobile, .mobileFilter {
   display: none;
 }
 
@@ -364,7 +365,9 @@ span {
   /*///////////////////////////////////////////////////////////////////////////////////////Mobile*/
   /*///////////////////////////////////////////////////NavbarMob*/
 
-  .logoDesk, .bearDesc, .jogsNav, .infoNav, .contactNav, .addDesktop, .sadDesktop, .cancelDesktop  {
+  .logoDesk, .bearDesc, .jogsNav, .infoNav,
+  .contactNav, .addDesktop, .sadDesktop,
+  .cancelDesktop, .desktopFilter {
     display: none;
   }
 
@@ -391,6 +394,10 @@ span {
   .links {
     display: flex;
     align-items: center;
+  }
+
+  .mobileFilter {
+    margin-left: 45px;
   }
   /*///////////////////////////////////////////////////RegisterMob*/
 
