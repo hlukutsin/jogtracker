@@ -11,7 +11,7 @@ export const Navbar = () => {
 
     const token = localStorage.getItem('token')
 
-    const {changeFilter, getFilterParams, filter, switchOffFilter} = useContext(StoreContext)
+    const {changeFilter, getFilterParams, filter, switchOffFilter, jogs} = useContext(StoreContext)
 
     const handle = () => {
         changeFilter()
@@ -36,6 +36,16 @@ export const Navbar = () => {
         switchOffFilter()
     }
 
+    let filterIcon
+
+    if (jogs.length !== 0) {
+    //     filterIcon = <NavLink to='/' onClick={()=>handle()}>
+    //     <img src={filterSrc} className={filterClass} alt="Filter"/>
+    // </NavLink>
+    } else {
+        filterIcon = null;
+    }
+
     return (
         <div className={className}>
             <div className='logo'>
@@ -47,12 +57,13 @@ export const Navbar = () => {
                     <NavLink className='navLink jogsNav' to='/'  exact>JOGS</NavLink>
                     <NavLink className='navLink infoNav' to='/info' onClick={()=>onBtnClick()}>INFO</NavLink>
                     <NavLink className='navLink contactNav' to='/contact' onClick={()=>onBtnClick()}>CONTACT US</NavLink>
-                    <NavLink to='/' onClick={()=>handle()}>
+                    {/* <NavLink to='/' onClick={()=>handle()}>
                         <img src={filterSrc} className={filterClass} alt="Filter"/>
-                    </NavLink>
+                    </NavLink> */}
                     <NavLink className='navMenuMobile' to='/menu'>
-                    <img src={menuMobile} className='menuMobile' alt="Filter"/>
+                        <img src={menuMobile} className='menuMobile' alt="Filter"/>
                     </NavLink>
+                    {filterIcon}
                 </div>
             : <img src={menuMobile} className='menuMobile' alt="Filter"/>
             }

@@ -90,9 +90,7 @@ return (
                 </label>
                 <input className='inputForm dateForm' name='date' type="Date" min="1970-01-01" max="2029-12-31"  value={state.date} onChange={(evt) => getData(evt)} />
             </div>
-            {/* <NavLink className='autoClose' to='/'> */}
                 <input  className='submitBtn' type="submit" value="Save" />
-            {/* </NavLink> */}
       </form>
     </div>
 )
