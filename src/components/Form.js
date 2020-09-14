@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import api from '../api/index'
-import {NavLink} from 'react-router-dom'
+import {NavLink, useHistory} from 'react-router-dom'
 import {StoreContext} from '../context/store/storeContext'
 import cancelDesktop from '../assets/images/desktop/cancel.png'
 import cancelMobile from '../assets/images/mobile/cancel.png'
@@ -8,6 +8,11 @@ import cancelMobile from '../assets/images/mobile/cancel.png'
 export const Form = () => {
 
 const {fetchJogs,  item, getId} = useContext(StoreContext)
+
+let history = useHistory();
+  
+let closeForm = () => history.push("/")
+
 
 const initialState = {
     distance: '',
@@ -37,6 +42,7 @@ const createJog = async  (evt) => {
     const token = localStorage.getItem('token')
     api.token = token
 
+
     if (distance && time && date) {
         
     if (item===null) {
@@ -55,7 +61,7 @@ const createJog = async  (evt) => {
         getId()
     }
     setState(initialState)
-
+    closeForm()
     }
 }
  
@@ -82,9 +88,11 @@ return (
                 <label className='label labelDate'>
                     Date
                 </label>
-                <input className='inputForm dateForm' name='date' type="Date" min="1970-01-01" max="2021-12-31"  value={state.date} onChange={(evt) => getData(evt)} />
+                <input className='inputForm dateForm' name='date' type="Date" min="1970-01-01" max="2029-12-31"  value={state.date} onChange={(evt) => getData(evt)} />
             </div>
-            <input className='submitBtn' type="submit" value="Save" />
+            {/* <NavLink className='autoClose' to='/'> */}
+                <input  className='submitBtn' type="submit" value="Save" />
+            {/* </NavLink> */}
       </form>
     </div>
 )
